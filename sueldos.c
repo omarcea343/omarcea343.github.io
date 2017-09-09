@@ -25,6 +25,7 @@ Se desea saber:
 int main() {
 	
 	int sueldo_hora, ganacia_empresa, ganancia_ciudad, ganancia_tienda, sueldo_empleado, ventas_vendedor, impuestos1, impuestos2, impuestos3, sueldo;
+	int id_ciudad, id_tienda, id_trabajador, horas_trabajadas, sueldo_neto, sueldo_bruto;
 	char vendedor[20];
 	float bono1, bono2;
 	
@@ -35,26 +36,43 @@ int main() {
 	impuestos2 = sueldo_bruto * 0.07;
 	impuestos3 = sueldo_bruto * 0.09;
 	
-	printf("Ingresa el Sueldo Hora");
+	printf("Ingresa el Sueldo Hora \n");
 	scanf("%d",&sueldo_hora);
 	
-	
-	if(sueldo >= 0 && sueldo <= 1500){
-		descuento1 = sueldo - impuestos1;
-	}
-	else if(sueldo > 1500 && sueldo <= 3000){
-		descuento2 = sueldo - impuestos2;
-	}
-	else if(sueldo > 3000 && sueldo < 4500){
-		descuento3 = sueldo - impuestos3;
-	}
-	
-	
-	
-	
-	
-	
-	
+	do{
+		printf("Dame el codigo de la ciudad: \n");
+		scanf("%d",&id_ciudad);
+		do{
+			printf("Dame el codigo de la tienda: \n");+
+			scanf("%d",&id_tienda);
+			do{
+				printf("Dame el codigo del trabajador \n");
+				scanf("%d",&id_trabajador);
+				printf("¿Cuantas horas trabajo? \n");
+				scanf("%d",&horas_trabajadas);
+				sueldo = horas_trabajadas * sueldo_hora;
+				if(sueldo <= 1500){
+					sueldo_neto = sueldo - impuestos1;
+				}
+				else if(sueldo > 1500 && sueldo <= 3000){
+					sueldo_neto = sueldo - impuestos2;
+				}
+				else if(sueldo > 3000 && sueldo <= 4500){
+					sueldo_neto = sueldo - impuestos3;
+				}
+				printf("El sueldo del trabajador es: %d \n", sueldo_neto);
+				do{
+					printf("Ingresala venta del vendedor: \n");
+					scanf("%d",&ventas_vendedor);
+					contador_ventas++;
+					ganancia_tienda = ganancia_tienda + ventas_vendedor;
+					
+				} while(ventas_vendedor !=0);
+				printf("El trabajador vendio %d ",&(contador_ventas-1));
+				printf("Ganancia total del vendedor es: %d",&ganancia_tienda);
+			} while(id_trabajador !=0);
+		} while(id_trabajador !=0);
+	} while(id_ciudad !=0);
 	
 	system ("pause");
 	return 0;

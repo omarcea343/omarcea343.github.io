@@ -12,13 +12,13 @@ La votacion termina cuando el ID es cero se presenta mostar resultado de eleccio
 #include <windows.h>
 
 int main() {
-
-	int voto, nvoto, id1, id2, id3, conteo1, conteo2, conteo3;
-
+	
+	int voto, nvoto = 0, id1, id2, id3, conteo1, conteo2, conteo3, nulo;
+	
 	char candidato1 [10];
 	char candidato2 [10];
 	char candidato3 [10];
-
+	
 	printf("Ingrese el nombre del candidato 1 \n\n");
 	scanf("%s",candidato1);
 	printf("Ingrese el ID del candidato 1 \n\n");
@@ -31,33 +31,32 @@ int main() {
 	scanf("%s",candidato3);
 	printf("Ingrese el ID del candidato 3 \n\n");
 	scanf("%d",&id3);
-
+	
 	printf("Este programa lleva  el registro de votaciones en tiempo real para contar su voto debe ingresar el ID del candidato por el que va a votar. \n\n");
 	printf("La lista de candidatos es: \n\n");
 	printf("Nombre: %s ID: %d \n\n", candidato1, id1);
 	printf("Nombre: %s ID: %d \n\n", candidato2, id2);
 	printf("Nombre: %s ID: %d \n\n", candidato3, id3);
-
-	printf("A continuacion ingresa el ID del candidato a votar. Ingresa 0 cuando termines. \n\n");
-
+	
 	do{
+		printf("A continuacion ingresa el ID del candidato a votar. Ingresa 0 cuando termines. \n\n");
 		scanf("%d",&voto);
-		if(voto = id1){
+		if(voto == id1){
 			conteo1++;
 		}
-		if(voto = id2){
+		else if(voto == id2){
 			conteo2++;
 		}
-		if(voto = id3){
+		else if(voto == id3){
 			conteo3++;
 		}
-		nvoto++;
+		else if(voto != 0){
+			nulo++;
+		}
 	} while(voto !=0);
-
+	nvoto = conteo1 + conteo2 + conteo3;
 	printf("El numero de votos fue: %d \n\n", nvoto);
-
-
-
+	
 	system ("pause");
 	return 0;
 }
