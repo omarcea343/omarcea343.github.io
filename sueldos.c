@@ -25,7 +25,7 @@ Se desea saber:
 int main() {
 	
 	int sueldo_hora, ganacia_empresa, ganancia_ciudad, ganancia_tienda, sueldo_empleado, ventas_vendedor, impuestos1, impuestos2, impuestos3, sueldo;
-	int id_ciudad, id_tienda, id_trabajador, horas_trabajadas, sueldo_neto, sueldo_bruto;
+	int id_ciudad, id_tienda, id_trabajador, horas_trabajadas, sueldo_neto, sueldo_bruto, contador_ventas;
 	char vendedor[20];
 	float bono1, bono2;
 	
@@ -68,8 +68,8 @@ int main() {
 					ganancia_tienda = ganancia_tienda + ventas_vendedor;
 					
 				} while(ventas_vendedor !=0);
-				printf("El trabajador vendio %d ",&(contador_ventas-1));
-				printf("Ganancia total del vendedor es: %d",&ganancia_tienda);
+				printf("El trabajador vendio %d \n",&contador_ventas-1);
+				printf("Ganancia total del vendedor es: %d \n",&ganancia_tienda);
 			} while(id_trabajador !=0);
 		} while(id_trabajador !=0);
 	} while(id_ciudad !=0);
